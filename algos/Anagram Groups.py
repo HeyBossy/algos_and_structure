@@ -11,6 +11,29 @@
 # Ввод: strs = ["x"]
 # Вывод: [["x"]]
 
+from collections import defaultdict
+# Сортировка слова занимает O(k log k), где k — длина слова.
+# Итерация по списку занимает O(n), где n — количество слов.
+# В худшем случае мы сортируем каждое слово, поэтому итоговая сложность:
+# O(n * k log k).
+def group_anagrams(strs):
+    anagrams = defaultdict(list)
+
+    for word in strs:
+        sorted_key = "".join(sorted(word))  # Приводим к единому виду
+        anagrams[sorted_key].append(word)   # Группируем по ключу
+
+    return list(anagrams.values())
+
+# Тестируем
+strs = ["act", "pots", "tops", "cat", "stop", "hat"]
+print(group_anagrams(strs))
+
+# defaultdict(list) полезен, когда нужно группировать данные, избегая проверки наличия ключей.
+# ✅ Работает автоматически, создавая пустой список при первом обращении к ключу.
+
+
+# ----------------- более сложно ---------------------
 from typing import List
 
 class Solution:
