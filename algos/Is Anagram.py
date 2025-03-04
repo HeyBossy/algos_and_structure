@@ -13,6 +13,18 @@
 # Ввод: s = "jar", t = "jam"
 # Вывод: False
 
+s = "racecar"
+t = "carrace"
+
+print(sorted(s) == sorted(t))  # True
+# СЛожность O(k log k) + O(k log k)  = О(k*log(k))
+
+Если k велико, сортировка O(k log k) становится дорогой. Вместо неё можно использовать счётчик символов (O(k)):
+s = "racecar"
+t = "carrace"
+
+print(Counter(s) == Counter(t))  # True
+
 from typing import Dict
 
 class Solution:
