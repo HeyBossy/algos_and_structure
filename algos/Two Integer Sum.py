@@ -51,3 +51,15 @@ print(solution.twoSum([4, 5, 6], 10))    # Ожидаемый вывод: [0, 2]
 
 # Пример 3
 print(solution.twoSum([5, 5], 10))       # Ожидаемый вывод: [0, 1]
+
+# --- со словарем быстрее там мы смотрим разницу если таргет минус число  = второе число и если второе число в словаре
+# то супер записываем индекс {'число':индекс}
+nums = [2, 7, 11, 15]
+target = 9
+num_dict = {}
+for i, first_num in enumerate(nums):
+  second_number = target - first_num
+  if second_number in num_dict.keys():
+    print([num_dict[second_number], i])
+  else:
+    num_dict[first_num] = i
