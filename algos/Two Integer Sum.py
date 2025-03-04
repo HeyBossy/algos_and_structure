@@ -22,16 +22,21 @@ from typing import List
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        ans_uppend = []
-        for start in range(len(nums)):
-            end = len(nums) - 1
-            while start < end:
-                current_sum = nums[start] + nums[end]
-                if current_sum == target:
-                    ans_uppend = [start, end]
-                    break
-                else:
-                    end -= 1
+        nums = [3, 4, 5, 6]
+        target = 7
+        
+        left, right = 0, len(nums) - 1
+        while left < right:
+            current_sum = nums[left] + nums[right]
+            if current_sum == target:
+                ans_uppend = [left,right]
+                break
+            else:
+                right -=1
+        ans
+        O(n log n), если сначала отсортировать.
+        O(n), если массив уже отсортирован. while имеет O(N)
+
         return ans_uppend
 
 
