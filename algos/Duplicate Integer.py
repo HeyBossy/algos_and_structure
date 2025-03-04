@@ -13,6 +13,23 @@
 
 from typing import List
 
+
+
+nums = [1, 2, 3, 4] 
+dict_index = set()
+for i in range(len(nums)):
+    if nums[i] not in dict_index:
+        dict_index.add(nums[i])
+
+if len(list(dict_index))!= len(nums):
+    print(False)
+else: 
+     print(True)
+# тут алогоритм имеет сложност (O(n)
+# Цикл for проходит по nums, что даёт O(N).
+# set.add() и set.__contains__() выполняются за O(1) (в среднем).
+# Проверка len(set) != len(nums) занимает O(1).
+
 class Solution:
     def hasDuplicate(self, nums: List[int]) -> bool:
         """
