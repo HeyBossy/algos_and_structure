@@ -18,6 +18,18 @@
 # Пояснение: Ответ "wke", с длиной 3.
 # Обратите внимание, что ответ должен быть подстрокой, а не подпоследовательностью.
 
+# скользящее окно
+ char_set = set()  # Хранит уникальные символы в окне
+    left = 0  # Левый указатель окна
+    max_length = 0
+
+    for right in range(len(s)):  # Двигаем правый указатель
+        while s[right] in char_set:  # Пока символ уже есть в окне
+            char_set.remove(s[left])  # Удаляем символ слева
+            left += 1  # Сдвигаем левый указатель
+        char_set.add(s[right])  # Добавляем новый символ в окно
+        max_length = max(max_length, right - left + 1)  # Обновляем максимум
+
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
         """
