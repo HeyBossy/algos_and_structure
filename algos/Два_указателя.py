@@ -20,6 +20,27 @@ def is_palindrome_permutation(s):
 # Пример использования
 print(is_palindrome_permutation("A man a plan a canal Panama"))  # Ожидаемый результат: True
 
+или
+s = "amanaplanacanalpanama"
+is_pol = True  # Изначально предполагаем, что строка палиндром
+left, right = 0, len(s) - 1
+
+while left < right:
+    if s[left] == s[right]:  # Если символы равны, двигаем указатели дальше
+        left += 1
+        right -= 1
+    else:
+        is_pol = False  # Если символы не равны, это не палиндром
+        break  # Прерываем цикл, так как строка не палиндром
+
+А ЕСЛИ ТАКОЕ ПРИМЕР "A man, a plan, a canal: Panama" ТО НАДО ВЗЯТ ТОКА БУКВЫ
+s = "A man, a plan, a canal: Panama".lower()
+only_chars = ''.join([char for char in s if char.isalpha()])
+reverse_s = only_chars[::-1]
+
+reverse_s ==  only_chars   
+
+
 # Задача:
 # Проверить, является ли данная строка палиндромом (читается одинаково с обеих сторон),
 # игнорируя пробелы и регистр символов.
