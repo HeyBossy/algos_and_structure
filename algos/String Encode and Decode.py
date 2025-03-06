@@ -11,6 +11,24 @@
 # Вывод: ["we", "say", ":", "yes"]
 
 from typing import List
+##########encode - длина слова - # - само слово
+s = ["neet", "code", "love", "you"]
+encode_s = []
+for char in s:
+    new_word = f'{len(char)}#{char}' 
+    encode_s.append(new_word)
+encode_s
+
+
+###### находим решетку и длину излвекаем и затем само слово
+decode_s = []
+for dec_char in encode_s:
+    j = dec_char.find('#')
+    lenght = int(dec_char[:j])
+    word = dec_char[j+1:j+1+lenght]
+    decode_s.append(word)
+decode_s    
+
 
 class Solution:
     def encode(self, strs: List[str]) -> str:
