@@ -28,4 +28,22 @@ for i in range(len(text1)-1): #O(n)
       ans.append(text1[i])
 # СЛожнось алгоритма O(n*m)
 
-ans
+БЫСТРЕЕ ПОДХОД
+text1 = "abcde"
+text2 = "ace"
+i = 0
+j = 0
+s = ''
+text1 = ''.join(sorted(text1))
+text2 = ''.join(sorted(text2))
+
+while i<len(text1) and j<len(text2):
+    if text1[i] == text2[j]:
+        s +=text1[i] 
+        i+=1
+        j+=1
+    elif  text1[i] < text2[j]:
+        i+=1
+    else:
+        j+=1
+
